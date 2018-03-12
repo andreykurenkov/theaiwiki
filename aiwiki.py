@@ -7,14 +7,28 @@ class Config(FarmConfig):
     interwikiname = 'aiwiki'
     show_interwiki = False
     logo_string = u'<img src="/moin_static198/common/aiwiki.png" alt="AI Wiki Logo"><h4 id="The_AI_Wiki">The AI Wiki</h4>'
-    acl_rights_default = u'Known:read,write,delete,revert All:read,write  +AdminGroup:admin BadGuy:'
+    acl_rights_before = u"admin:read,write,delete,revert,admin +AdminGroup:admin,delete"
+    acl_rights_default = u"Known:write,read All:read Bad:"
 
-    page_front_page = u"Overview" 
+    page_front_page = u"Home" 
     
     data_dir = '/var/www/moin/aiwiki/data/'
     data_underlay_dir = '/var/www/moin/aiwiki/underlay/'
     cache_dir = '/var/lib/moin/cache'
     user_checkbox_defaults = {'show_page_trail':False}
+
+    surge_action_limits = { # allow max. <count> <action> requests per <dt> secs
+        # action: (count, dt)
+        'show': (20, 60),
+        'raw': (20, 40),  # some people use this for css
+        'AttachFile': (60, 60),
+        'diff': (30, 60),
+        'fullsearch': (5, 60),
+        'edit': (30, 120),
+        'rss_rc': (1, 60),
+        'default': (30, 60),
+    }
+    surge_lockout_time = 3600 # secs you get locked out when you ignore warnings
 
     superuser = ['admin','AndreyK']
     theme_default = u"hal"
