@@ -6,9 +6,9 @@ class Config(FarmConfig):
     sitename = u'The AI Wiki'
     interwikiname = 'aiwiki'
     show_interwiki = False
-    logo_string = u'<img src="/moin_static198/common/aiwiki.png" alt="AI Wiki Logo"><h4 id="The_AI_Wiki">The AI Wiki</h4>'
-    acl_rights_before = u"admin:read,write,delete,revert,admin +AdminGroup:admin,delete"
-    acl_rights_default = u"Known:write,read All:read Bad:"
+    logo_string = u'<img src="/moin_static198/common/aiwiki_64.png" alt="AI Wiki Logo"><h4 id="The_AI_Wiki">The AI Wiki</h4>'
+    acl_rights_before = u"+All:read"
+    acl_rights_default = u"admin:write,delete,revert,admin Known:write +AdminGroup:admin,delete"
 
     page_front_page = u"Home" 
     
